@@ -1,4 +1,9 @@
 """
+
+Use Command `mprof run app.py` to get memory size of app
+then run `mprof plot` to show the memory usage plot
+
+
 by default open cv reads images in BGR mode BLUE, GREEN, RED
 but otherlibraries cannot show this values properly like matplotlib
 so its better to convert this values to BGR before showing it in other libraries
@@ -9,32 +14,40 @@ https://www.geeksforgeeks.org/color-spaces-in-opencv-python/
 """
 
 import cv2 as cv
+from memory_profiler import profile
 
 
-filename = "../Media/1.jpg" 
+@profile
+def main():
+    filename = "../Media/1.jpg" 
 
-image = cv.imread(filename, 1) # filename: str, flags: int
-# flags
-# 1   0   -1
+    image = cv.imread(filename, 1) # filename: str, flags: int
+    # flags
+    # 1   0   -1
 
-# convert BGR to RGB
-image = cv.cvtColor(image, cv.COLOR_BGR2RGB) # src, code
-
-
-# showing image with opencv
-cv.imshow("Open Cv", image) # winname: str, mat: cv2.typing.MatLik
+    # convert BGR to RGB
+    image = cv.cvtColor(image, cv.COLOR_BGR2RGB) # src, code
 
 
-cv.waitKey(1000) # delay: int => milliseconds 
-# if 0 is passed its wait until a key pressed on the keyboard
-
-cv.destroyAllWindows() # remove all windows from memory
+    # showing image with opencv
+    cv.imshow("Open Cv", image) # winname: str, mat: cv2.typing.MatLik
 
 
-# showing images with mathplotlib
-import matplotlib.pyplot as plt
+    cv.waitKey(1000) # delay: int => milliseconds 
+    # if 0 is passed its wait until a key pressed on the keyboard
 
-plt.imshow(image)
-plt.title("matplotlib")
-plt.waitforbuttonpress()
-plt.close('all')
+    cv.destroyAllWindows() # remove all windows from memory
+
+
+    # showing images with mathplotlib
+    import matplotlib.pyplot as plt
+
+    plt.imshow(image)
+    plt.title("matplotlib")
+    plt.waitforbuttonpress()
+    plt.close('all')
+
+
+
+if __name__ == "__main__":
+    main()
