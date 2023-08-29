@@ -11,7 +11,7 @@ https://www.geeksforgeeks.org/color-spaces-in-opencv-python/
 import cv2 as cv
 
 
-filename = "./Media/1.jpg" 
+filename = "../Media/1.jpg" 
 
 image = cv.imread(filename, 1) # filename: str, flags: int
 # flags
