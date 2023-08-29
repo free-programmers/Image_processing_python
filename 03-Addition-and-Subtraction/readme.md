@@ -18,5 +18,4 @@ Syntax: cv2.addWeighted(img1, wt1, img2, wt2, gammaValue)
 ```
  
 
-
 https://www.geeksforgeeks.org/arithmetic-operations-on-images-using-opencv-set-1-addition-and-subtraction/

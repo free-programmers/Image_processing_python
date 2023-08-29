@@ -17,7 +17,7 @@ file2 = cv.resize(file2, (600,600))
 cv.imshow("file 2", file2)
 cv.waitKey(1000)
 
-cv.destroyAllWindows()
+
 
 
 file = cv.addWeighted(file1, 0.5, file2, 0.5, 0) # src1: UMat, alpha: float, src2: UMat, beta: float, gamma: float, dst: UMat | None = ..., dtype: int = ...)
